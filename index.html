@@ -1,1 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Logger</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            padding: 1.5rem;
+            max-width: 600px;
+            margin: 0 auto;
+            color: #333;
+        }
+        h1 {
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            color: #24292e;
+        }
+        .section {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            border: 1px solid #e1e4e8;
+            border-radius: 6px;
+            background: #f6f8fa;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        input {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #d1d5da;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        button {
+            padding: 0.5rem 1rem;
+            border: 1px solid #d1d5da;
+            border-radius: 4px;
+            background: #fff;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        button:hover {
+            background: #f0f3f6;
+        }
+        #ctaA, #ctaB {
+            flex: 1;
+            min-width: 120px;
+        }
+        #ctaA {
+            background: #f1f8ff;
+            border-color: #c8e1ff;
+        }
+        #ctaB {
+            background: #fff5f1;
+            border-color: #ffd1c1;
+        }
+        #heartbeat {
+            background: #f8f9fa;
+        }
+        #status {
+            margin-top: 1rem;
+            padding: 0.75rem;
+            border-radius: 4px;
+            background: #fff;
+            border: 1px solid #e1e4e8;
+            font-family: monospace;
+            font-size: 0.9rem;
+            min-height: 1.5em;
+            word-break: break-all;
+        }
+        .success {
+            color: #22863a;
+        }
+        .error {
+            color: #cb2431;
+        }
+        code {
+            font-family: monospace;
+            background: rgba(27,31,35,0.05);
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Event Logger</h1>
 
+    <div class="section">
+        <label for="gasUrl">Google Apps Script Web App URL (<code>/exec</code> endpoint)</label>
+        <input type="url" id="gasUrl" placeholder="https://script.google.com/.../exec">
+        <div class="button-group">
+            <button id="saveUrl">Save URL</button>
+        </div>
+    </div>
+
+    <div class="section">
+        <p><strong>CTA Events</strong></p>
+        <div class="button-group">
+            <button id="ctaA">CTA A</button>
+            <button id="ctaB">CTA B</button>
+        </div>
+        <p style="margin-top: 1rem;"><strong>Heartbeat</strong></p>
+        <div class="button-group">
+            <button id="heartbeat">Send Heartbeat</button>
+        </div>
+    </div>
+
+    <div id="status"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
